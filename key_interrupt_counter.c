@@ -11,6 +11,7 @@ MODULE_VERSION("0.1");
 
 static uint64_t count = 0;
 static int irq = 1, dev = 0;
+static ktime_t time;
 
 irq_handler_t irq_handler(int irq, void *dev_id, struct pt_regs *regs)
 {
@@ -22,6 +23,7 @@ irq_handler_t irq_handler(int irq, void *dev_id, struct pt_regs *regs)
 static int __init key_interrupt_counter_init(void) 
 {
     printk(KERN_INFO "Key interrupt counter has beed loaded\n");
+    time = ktime_get_real();
     return request_irq (irq, (irq_handler_t)irq_handler, IRQF_SHARED, "kbd_irq_handler", (void *)(&dev));
 }
 
