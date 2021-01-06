@@ -3,6 +3,7 @@
 #include <linux/kernel.h>
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Rafal Rogalski");
 
 static int __init key_interrupt_counter_init(void) {
     printk(KERN_INFO "Key interrupt counter has beed loaded\n");
