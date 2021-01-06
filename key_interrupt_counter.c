@@ -4,6 +4,7 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Rafal Rogalski");
+MODULE_DESCRIPTION("Module for counting interrupts from keyboard");
 
 static int __init key_interrupt_counter_init(void) {
     printk(KERN_INFO "Key interrupt counter has beed loaded\n");
