@@ -96,22 +96,22 @@ static void __exit key_interrupt_counter_exit(void)
 
 static ssize_t read(struct file *file, char __user *buf, size_t len, loff_t *off)
 {
-    printk(KERN_INFO "Read function\n");
+    printk(KERN_DEBUG "Read function\n");
     return 0;
 }
 static ssize_t write(struct file *file, const char __user *buf, size_t len, loff_t *off)
 {
-    printk(KERN_INFO "Write function\n");
+    printk(KERN_DEBUG "Write function\n");
     return 0;
 }
 static int open(struct inode *inode, struct file *file)
 {
-    printk(KERN_INFO "Device file open!\n");
+    printk(KERN_DEBUG "Device file open!\n");
     return 0;
 }
 static int release(struct inode *inode, struct file *file)
 {
-    printk(KERN_INFO "Device file close!\n");
+    printk(KERN_DEBUG "Device file close!\n");
     return 0;
 }
 static long ioctl(struct file *file, unsigned int cmd, unsigned long arg)
