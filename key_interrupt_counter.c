@@ -142,4 +142,4 @@ module_exit(key_interrupt_counter_exit);
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Rafal Rogalski");
 MODULE_DESCRIPTION("Module for counting interrupts from keyboard.");
-MODULE_VERSION("0.1");
+MODULE_VERSION("1.0");
