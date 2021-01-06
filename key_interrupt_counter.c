@@ -4,11 +4,6 @@
 #include <linux/interrupt.h>
 #include <linux/ktime.h>
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Rafal Rogalski");
-MODULE_DESCRIPTION("Module for counting interrupts from keyboard");
-MODULE_VERSION("0.1");
-
 static uint64_t count = 0;
 static int irq = 1, dev = 0;
 static ktime_t time;
@@ -36,3 +31,8 @@ static void __exit key_interrupt_counter_exit(void)
 
 module_init(key_interrupt_counter_init);
 module_exit(key_interrupt_counter_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Rafal Rogalski");
+MODULE_DESCRIPTION("Module for counting interrupts from keyboard.");
+MODULE_VERSION("0.1");
