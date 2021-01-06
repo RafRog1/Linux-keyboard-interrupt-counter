@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
             struct tm ts = *localtime(&time);
             strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", &ts);
             printf("Time last reset counter: \n%s\n", buf);
-        } else if (strcmp(argv[1], "-rt") == 0) {
+        } else if (strcmp(argv[1], "-rc") == 0) {
             ioctl(fd, RESET_COUNT);
             printf("Reset counter\n");
         } else {
