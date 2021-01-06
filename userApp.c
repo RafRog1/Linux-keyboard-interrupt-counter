@@ -38,11 +38,17 @@ int main(int argc, char *argv[])
             ioctl(fd, RESET_COUNT);
             printf("Reset counter\n");
         } else {
-            fprintf(stderr, "Usage: %s [-gc | -gt | -rt]\n", argv[0]);
+            fprintf(stderr, "Usage: %s [-gc | -gt | -rc]\n\
+                        \r* -gc -> get counter\n\
+                        \r* -gt -> get time last reset counter\n\
+                        \r* -rc -> reset counter\n", argv[0]);
             ret = 1;
         }
     } else {
-        fprintf(stderr, "Usage: %s [-gc | -gt | -rt]\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-gc | -gt | -rc]\n\
+                        \r* -gc -> get counter\n\
+                        \r* -gt -> get time last reset counter\n\
+                        \r* -rc -> reset counter\n", argv[0]);
         ret = 1;
     }
 
