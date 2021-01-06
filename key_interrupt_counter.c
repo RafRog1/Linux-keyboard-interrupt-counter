@@ -32,6 +32,10 @@ static struct file_operations fops = {
 
 irq_handler_t irq_handler(int irq, void *dev_id, struct pt_regs *regs)
 {
+    if (count == __UINT64_MAX__) {
+        count = 0;
+        time = ktime_get_real();
+    }
     count++;
 
     return (irq_handler_t)IRQ_HANDLED;
