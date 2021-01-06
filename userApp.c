@@ -7,9 +7,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#define GET_COUNT       _IOR('a', 'a', uint64_t*)
-#define RESET_COUNT     _IO('a', 'b')
-#define GET_COUT_TIME   _IOR('a', 'c', uint32_t*)
+#include "IO_definitions.h"
 
 int main(int argc, char *argv[])
 {
