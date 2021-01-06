@@ -4,6 +4,10 @@
 #include <linux/interrupt.h>
 #include <linux/ktime.h>
 
+#define GET_COUNT       _IOR('a', 'a', uint64_t*)
+#define RESET_COUNT     _IO('a', 'b')
+#define GET_COUT_TIME   _IOR('a', 'c', uint32_t*)
+
 static uint64_t count = 0;
 static int irq = 1, dev = 0;
 static ktime_t time;
