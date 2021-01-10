@@ -1,3 +1,9 @@
+/**
+ * @file IO_definitions.h
+ * @author Rafal Rogalski
+ * @brief Command IO definition file.
+ * 
+ */
 #ifndef IO_DEFINITIONS_H_
 #define IO_DEFINITIONS_H_
 

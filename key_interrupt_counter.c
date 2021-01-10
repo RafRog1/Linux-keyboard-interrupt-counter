@@ -1,3 +1,9 @@
+/**
+ * @file key_interrupt_counter.c
+ * @author Rafal Rogalski
+ * @brief Keyboard interrupt counting module for kernel.
+ * 
+ */
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -10,6 +16,7 @@
 
 #include "IO_definitions.h"
 
+/* Module variables */
 static uint64_t count;
 static ktime_t time;
 
