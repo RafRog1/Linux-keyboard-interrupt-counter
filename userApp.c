@@ -9,6 +9,20 @@
 
 #include "IO_definitions.h"
 
+#define GET_COUNT_COMMAND   "-gc"
+#define GET_TIME_COMMAND    "-gt"
+#define RESET_COUNT_COMMAND "-rc"
+
+static void print_usage(const char * first_arf)
+{
+    fprintf(stderr, "Usage: %s [%s | %s | %s]\n\
+                        \r* %s -> get counter\n\
+                        \r* %s -> get time last reset counter\n\
+                        \r* %s -> reset counter\n", 
+                        first_arf, GET_COUNT_COMMAND, GET_TIME_COMMAND, RESET_COUNT_COMMAND, 
+                                    GET_COUNT_COMMAND, GET_TIME_COMMAND, RESET_COUNT_COMMAND);
+}
+
 int main(int argc, char *argv[])
 {
     int ret = 0;
@@ -20,11 +34,11 @@ int main(int argc, char *argv[])
     }
 
     if (argc == 2) {
-        if (strcmp(argv[1], "-gc") == 0) {
+        if (strcmp(argv[1], GET_COUNT_COMMAND) == 0) {
             uint64_t count;
             ioctl(fd, GET_COUNT, &count);
             printf("Count interrupts from keyboard: %lu\n", count);
-        } else if (strcmp(argv[1], "-gt") == 0) {
+        } else if (strcmp(argv[1], GET_TIME_COMMAND) == 0) {
             uint32_t time_sec;
             char buf[80];
             ioctl(fd, GET_COUT_TIME, &time_sec);
@@ -32,21 +46,15 @@ int main(int argc, char *argv[])
             struct tm ts = *localtime(&time);
             strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", &ts);
             printf("Time last reset counter: \n%s\n", buf);
-        } else if (strcmp(argv[1], "-rc") == 0) {
+        } else if (strcmp(argv[1], RESET_COUNT_COMMAND) == 0) {
             ioctl(fd, RESET_COUNT);
             printf("Reset counter\n");
         } else {
-            fprintf(stderr, "Usage: %s [-gc | -gt | -rc]\n\
-                        \r* -gc -> get counter\n\
-                        \r* -gt -> get time last reset counter\n\
-                        \r* -rc -> reset counter\n", argv[0]);
+            print_usage(argv[0]);
             ret = 1;
         }
     } else {
-        fprintf(stderr, "Usage: %s [-gc | -gt | -rc]\n\
-                        \r* -gc -> get counter\n\
-                        \r* -gt -> get time last reset counter\n\
-                        \r* -rc -> reset counter\n", argv[0]);
+        print_usage(argv[0]);
         ret = 1;
     }
 
