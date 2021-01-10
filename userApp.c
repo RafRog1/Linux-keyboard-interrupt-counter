@@ -13,13 +13,13 @@
 #define GET_TIME_COMMAND    "-gt"
 #define RESET_COUNT_COMMAND "-rc"
 
-static void print_usage(const char * first_arf)
+static void print_usage(const char * first_arg)
 {
     fprintf(stderr, "Usage: %s [%s | %s | %s]\n\
                         \r* %s -> get counter\n\
                         \r* %s -> get time last reset counter\n\
                         \r* %s -> reset counter\n", 
-                        first_arf, GET_COUNT_COMMAND, GET_TIME_COMMAND, RESET_COUNT_COMMAND, 
+                        first_arg, GET_COUNT_COMMAND, GET_TIME_COMMAND, RESET_COUNT_COMMAND, 
                                     GET_COUNT_COMMAND, GET_TIME_COMMAND, RESET_COUNT_COMMAND);
 }
 
